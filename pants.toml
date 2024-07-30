@@ -1,0 +1,35 @@
+[GLOBAL]
+pants_version = "2.21.0"
+backend_packages = [
+    "pants.backend.python"
+]
+
+
+[source]
+root_patterns = [
+    "/python/apps/*",
+    "/python/libs/*",
+]
+
+
+[python]
+interpreter_constraints = [">=3.7"]
+enable_resolves = true
+
+
+[python-bootstrap]
+search_path = ["<PYENV>"]
+
+
+[python.resolves]
+app_1 = "python/apps/app_1/lock.json"
+app_2 = "python/apps/app_2/lock.json"
+
+
+[python.resolves_to_interpreter_constraints]
+app_1 = ["==3.7.*"]
+app_2 = ["==3.8.*"]
+
+
+[python-infer]
+ambiguity_resolution = "by_source_root"

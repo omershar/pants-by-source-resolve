@@ -1,0 +1,6 @@
+[tool.poetry]
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+numpy = "1.21.1"
+requests = "2.20.0"
